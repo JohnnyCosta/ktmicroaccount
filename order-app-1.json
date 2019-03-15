@@ -1,0 +1,14 @@
+{
+  "port" : 8081,
+  "host" : "127.0.0.1",
+  "name" : "order-app-1",
+  "discovery" : {
+    "host" : "127.0.0.1",
+    "port" : 8500
+  },
+  "btc" : {
+    "host" : "127.0.0.1",
+    "port" : 5000,
+    "query": "/btc-price"
+  }
+}
