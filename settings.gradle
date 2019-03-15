@@ -1,5 +1,7 @@
 rootProject.name = 'ktmicroaccount'
 
+include ':domain'
+include ':scenario'
 include ':account-app'
 
 project(":account-app").projectDir = file("application/account-app")
