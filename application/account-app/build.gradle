@@ -2,12 +2,15 @@ plugins {
   id 'java-library'
   id 'application'
   id 'com.github.johnrengelman.shadow' version '5.0.0'
+  id 'kotlin'
 }
 
 ext.moduleName = 'org.micro.app.account'
 
 dependencies {
   implementation(
+    project(':config'),
+    project(':controller'),
     'io.vertx:vertx-web:3.6.3',
     'io.vertx:vertx-web-client:3.6.3',
     'io.vertx:vertx-config:3.6.3',

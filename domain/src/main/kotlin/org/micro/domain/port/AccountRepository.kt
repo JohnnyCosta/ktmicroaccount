@@ -13,5 +13,5 @@ interface AccountRepository {
 
   fun findAll(): List<Account>
 
-  fun update(accountId: String, btcPrice: Float?): Optional<Account>
+  fun update(accountId: String, btcPrice: Float): Optional<Account>
 }

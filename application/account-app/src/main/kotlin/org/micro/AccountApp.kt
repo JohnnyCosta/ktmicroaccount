@@ -1,5 +1,7 @@
+package org.micro
+
 import io.vertx.core.Vertx.vertx
-import verticle.AccountVerticle
+import org.micro.verticle.AccountVerticle
 import org.slf4j.LoggerFactory
 
 

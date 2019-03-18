@@ -1,16 +1,22 @@
-package verticle
+package org.micro.verticle
 
 import io.vertx.config.ConfigRetriever
 import io.vertx.config.ConfigRetrieverOptions
 import io.vertx.config.ConfigStoreOptions
 import io.vertx.core.AbstractVerticle
+import io.vertx.core.Handler
 import io.vertx.core.json.JsonArray
 import io.vertx.core.json.JsonObject
 import io.vertx.ext.web.Router
+import io.vertx.ext.web.RoutingContext
 import io.vertx.ext.web.handler.BodyHandler
 import org.slf4j.LoggerFactory
+import org.micro.config.AppConfig;
 
 class AccountVerticle(private val configPath: String) : AbstractVerticle() {
+
+  private val accountController = AppConfig().accountController
+
   @Throws(Exception::class)
   override fun start() {
 
@@ -22,6 +28,11 @@ class AccountVerticle(private val configPath: String) : AbstractVerticle() {
     router
       .route()
       .handler(BodyHandler.create())
+
+    router
+      .post("/account")
+      .handler(Handler<RoutingContext> { accountController.createAccount(it) })
+      .produces("application/json")
 
     val file = ConfigStoreOptions()
       .setType("file")
