@@ -7,11 +7,11 @@ interface AccountRepository {
 
   fun create(account: Account): Account
 
-  fun findByName(name: String): Optional<Account>
+  fun findByName(name: String): Account?
 
-  fun findById(id: String): Optional<Account>
+  fun findById(id: String): Account?
 
   fun findAll(): List<Account>
 
-  fun update(accountId: String, btcPrice: Float): Optional<Account>
+  fun update(accountId: String, btcPrice: Float): Account?
 }
